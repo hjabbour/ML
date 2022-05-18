@@ -35,7 +35,7 @@ subprocess.call("pwd")
 #subprocess.call("./EASYCAP.py")
 
 
-# In[ ]:
+# In[5]:
 
 
 thistime = datetime.datetime.now() 
@@ -59,6 +59,12 @@ def strsi3d1h():
     print(str(thisdate))
     subprocess.call("./STRSI3D1H.py")
     
+def mldata():
+    print("MLDATA")
+    print(str(thistime))
+    print(str(thisdate))
+    subprocess.call("./datacollector.py")
+    
 def fixentry():
     print("fixentry")
     print(str(thistime))
@@ -67,8 +73,10 @@ def fixentry():
     
 schedule.every(7).days.do(easycap)
 schedule.every(24).hours.do(easyband)
-schedule.every(1).hour.do(strsi3d1h)
+#schedule.every(1).hour.do(strsi3d1h)
 schedule.every(1).hour.do(fixentry)
+schedule.every(15).minutes.do(mldata)
+
 
 
   
