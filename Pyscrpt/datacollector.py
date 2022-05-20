@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[279]:
 
 
 ## need to add open close for each time frame ,
@@ -11,7 +11,7 @@
 ## bot with GAN or CAN 
 
 
-# In[2]:
+# In[280]:
 
 
 import numpy as np 
@@ -27,7 +27,7 @@ from dateutil.relativedelta import relativedelta
 #Data Source(Pandas Data Reader)
 
 
-# In[3]:
+# In[281]:
 
 
 ## choose either white list or read from fix entries 
@@ -46,7 +46,7 @@ whitelist[0]
 #final.set_index('Indicator')
 
 
-# In[4]:
+# In[282]:
 
 
 #alllist = 'GALA/USDT, ANT/USDT,IMX/USDT, MATIC/USDT, ZRX/USDT,  ALGO/USDT, BTC/USDT, ETH/USDT, AXS/USDT, SOL/USDT, MATIC/USDT, ADA/USDT, BNB/USDT, FIL/USDT, XRP/USDT, CVC/USDT, FTM/USDT, ICP/USDT, DOGE/USDT, XEC/USDT, IOTA/USDT, AVAX/USDT, DOT/USDT, LTC/USDT, EOS/USDT, IOST/USDT, STMX/USDT, FTT/USDT, TWT/USDT, ALICE/USDT, ATA/USDT, ETC/USDT, VET/USDT, SAND/USDT, LINK/USDT, THETA/USDT, SHIB/USDT, CHZ/USDT, LUNA/USDT, IOTX/USDT, TRX/USDT, TLM/USDT, BCH/USDT, REEF/USDT, CAKE/USDT, NEO/USDT, SLP/USDT, RVN/USDT, ATOM/USDT, SUSHI/USDT, ARDR/USDT, OMG/USDT, GRT/USDT, 1INCH/USDT, AAVE/USDT, C98/USDT, UNI/USDT, HBAR/USDT, CRV/USDT, DENT/USDT, MBOX/USDT, BTT/USDT, SRM/USDT, YFI/USDT, HOT/USDT, XLM/USDT, FIS/USDT, REQ/USDT, SXP/USDT, KSM/USDT, QNT/USDT, NEAR/USDT, COMP/USDT, QTUM/USDT, CHR/USDT, SC/USDT, XVS/USDT, ONT/USDT, COTI/USDT, NKN/USDT, RUNE/USDT, ANKR/USDT, MANA/USDT, CTXC/USDT, AR/USDT, RAY/USDT, BAKE/USDT, ARPA/USDT, XTZ/USDT, ZIL/USDT, ONG/USDT, ROSE/USDT, PNT/USDT, ALGO/USDT, MINA/USDT, WIN/USDT, AUDIO/USDT, STORJ/USDT, EPS/USDT, MDX/USDT, ZEC/USDT, ENJ/USDT, HIVE/USDT, TFUEL/USDT, WRX/USDT, SNX/USDT, SKL/USDT, LINA/USDT, DODO/USDT, UNFI/USDT, XEM/USDT, EGLD/USDT, ICX/USDT, WAVES/USDT, ONE/USDT, DASH/USDT, KAVA/USDT, SUPER/USDT, TKO/USDT, OGN/USDT, XMR/USDT, OCEAN/USDT, CELO/USDT, BAT/USDT, FUN/USDT, LRC/USDT, ALPHA/USDT, MASK/USDT, TRU/USDT, DNT/USDT, LIT/USDT, FET/USDT, GTC/USDT, CELR/USDT, DEXE/USDT, ZEN/USDT, WAXP/USDT, CTSI/USDT, HNT/USDT, YFII/USDT, BEL/USDT, ZRX/USDT, DEGO/USDT, RSR/USDT, COS/USDT, FLM/USDT, BAL/USDT, MFT/USDT, RLC/USDT, KNC/USDT, REN/USDT, INJ/USDT, FLOW/USDT, SFP/USDT, BAND/USDT, CTK/USDT, SUN/USDT, AKRO/USDT, XVG/USDT, NANO/USDT, STRAX/USDT, PUNDIX/USDT, TVK/USDT, MKR/USDT, CLV/USDT, TRB/USDT, ETHUP/USDT, KEEP/USDT, TCT/USDT, POND/USDT, LTO/USDT, ANT/USDT, TOMO/USDT, ACM/USDT, FIO/USDT, VITE/USDT, MBL/USDT, JST/USDT, MTL/USDT, UTK/USDT, BLZ/USDT, ORN/USDT, STPT/USDT, CFX/USDT, OM/USDT, PERP/USDT, MIR/USDT, STX/USDT, ERN/USDT, TUSD/USDT, PSG/USDT, NULS/USDT, OXT/USDT, REP/USDT, BNBUP/USDT, DATA/USDT, WAN/USDT, BURGER/USDT, RAMP/USDT, ATM/USDT, DGB/USDT, DIA/USDT, BEAM/USDT, UMA/USDT, ETHDOWN/USDT, CKB/USDT, TRIBE/USDT, FARM/USDT, BTCUP/USDT, BZRX/USDT, ALPACA/USDT, DOTUP/USDT, BTS/USDT, FOR/USDT, ADAUP/USDT, HARD/USDT, LSK/USDT, POLS/USDT, FORTH/USDT, TORN/USDT, VTHO/USDT, BTG/USDT, QUICK/USDT, FILUP/USDT, PAX/USDT, MITH/USDT, SUSHIUP/USDT, BTCDOWN/USDT, XRPDOWN/USDT, BNBDOWN/USDT, DUSK/USDT, XRPUP/USDT, WTC/USDT, DOCK/USDT, AUTO/USDT, BTCST/USDT, KLAY/USDT, WNXM/USDT, KEY/USDT, FILDOWN/USDT, NU/USDT, IRIS/USDT, KMD/USDT, TROY/USDT, WING/USDT, AION/USDT, PHA/USDT, SUSHIDOWN/USDT, EOSUP/USDT, LTCUP/USDT, GHST/USDT, PAXG/USDT, BNT/USDT, AVA/USDT, BADGER/USDT, PERL/USDT, COCOS/USDT, GXS/USDT, MDT/USDT, 1INCHUP/USDT, GTO/USDT, LINKUP/USDT, AAVEUP/USDT, FIRO/USDT, JUV/USDT, MLN/USDT, UNIUP/USDT, LPT/USDT, NMR/USDT, AAVEDOWN/USDT, 1INCHDOWN/USDT, ASR/USDT, OG/USDT, BAR/USDT, DREP/USDT, ADADOWN/USDT, BOND/USDT, DCR/USDT, DOTDOWN/USDT, GNO/USDT, NBS/USDT, SXPUP/USDT, EOSDOWN/USDT, YFIUP/USDT, RIF/USDT, LTCDOWN/USDT, XLMUP/USDT, YFIDOWN/USDT, LINKDOWN/USDT, TRXUP/USDT, BCHUP/USDT, XTZUP/USDT, SXPDOWN/USDT, UNIDOWN/USDT, XTZDOWN/USDT, BCHDOWN/USDT, TRXDOWN/USDT, XLMDOWN/USDT, SUSD/USDT'
@@ -59,13 +59,13 @@ intervals = ['5m','15m','30m','1h','2h','4h','8h','12h','1d','3d','1w']
 #intervals = ['8h']
 
 
-# In[5]:
+# In[283]:
 
 
 #print (enddate)
 
 
-# In[6]:
+# In[284]:
 
 
 def FRSI(series, period=14):
@@ -129,7 +129,7 @@ def FTOPP (series,size):
 
 
 
-# In[7]:
+# In[285]:
 
 
 #alllist=alllist.lstrip()
@@ -304,13 +304,18 @@ final['Time'] = pd.to_datetime('today')
 #final.reset_index(inplace=True)
 
 
-# In[8]:
+# In[286]:
 
 
 #final.Indicator
 
 
-# In[9]:
+# In[287]:
+
+
+import os.path
+
+file_exists = os.path.exists("MLDATATOP"+str(date.today())+".csv")
 
 
 
@@ -319,7 +324,12 @@ final['Time'] = pd.to_datetime('today')
 #final['Time'] = pd.to_datetime('today')
 #final.to_csv("MLDATATOP.csv")
 #final.to_csv("MLSTRSIMACDBTTOP.csv")
-final.to_csv("MLDATATOP"+str(date.today())+".csv")
+if file_exists :
+    final.to_csv("MLDATATOP"+str(date.today())+".csv", mode='a', index=True, header=False)
+else :
+    final.to_csv("MLDATATOP"+str(date.today())+".csv")
+    
+#final.to_csv("MLDATATOP"+str(date.today())+".csv")
 ## adding to two files the first file i thought there is a column missmatch
 #final.to_csv('MLSTRSIMACDBTTOP.csv', mode='a', index=True, header=False)
 final.to_csv('MLDATATOP.csv', mode='a', index=True, header=False)
@@ -328,13 +338,13 @@ final.to_csv('MLDATATOP.csv', mode='a', index=True, header=False)
 final.head()
 
 
-# In[10]:
+# In[288]:
 
 
 final.tail()
 
 
-# In[11]:
+# In[289]:
 
 
 #Rules
@@ -614,7 +624,7 @@ rule13under =(final['STRSIK3d'] < final['STRSID3d']) & (final['STRSIK1d'] < fina
 #final.dropna()
 
 
-# In[12]:
+# In[290]:
 
 
 wshift = final.loc[rule1wkup]
@@ -624,7 +634,7 @@ wshift
 # # Summary  draft rules
 # 
 
-# In[13]:
+# In[291]:
 
 
 #final.reset_index(inplace=True)
@@ -795,7 +805,7 @@ macd1wu
 # # Functions
 # 
 
-# In[14]:
+# In[292]:
 
 
 #DRAFT functions
@@ -1130,7 +1140,7 @@ def callfun(final:pd,*var)->pd:
 
 
 
-# In[15]:
+# In[293]:
 
 
 # dframe=to_df(final ,bottoms,'bottoms')
@@ -1197,6 +1207,7 @@ test = newframe.loc[(newframe['rsiup'] <= '1d') & (newframe['stover'].notnull())
 
 #test = newframe.loc[(newframe['bottomr'] <= '12h') &  (newframe['bottoms'] <= '12h') ]
 test = newframe.loc[(newframe['bottomr'] >= '1d') & ((newframe['stover'].notnull()) | (newframe['stkcross'].notnull()))]
+test = newframe.loc[(newframe['bottomr'] >= '1d') & ((newframe['stover'].notnull()) | (newframe['stkup'].notnull()))]
 
 #test = newframe.loc[ (newframe['stkup'].notnull()) & (newframe['bottomr'] >= '2h') & ((newframe['stover'].notnull()) | (newframe['stkcross'].notnull()))]
 
@@ -1231,7 +1242,7 @@ newframe
 test
 
 
-# In[16]:
+# In[294]:
 
 
 ## Indicator check
@@ -1239,7 +1250,7 @@ test1 = newframe.loc[(newframe['Indicator'] == 'DENTUSDT')]
 test1
 
 
-# In[17]:
+# In[295]:
 
 
 # Indicators for the week shift
@@ -1252,7 +1263,7 @@ newframe=newframe.sort_values(by=['bottoms','stkup','bottomr'],ascending=[False,
 newframe
 
 
-# In[18]:
+# In[296]:
 
 
 # Indicators for the 3d Cross
@@ -1267,7 +1278,7 @@ test = newframe.loc[ (newframe['stkup'].notnull()) & (newframe['bottomr'] >= '2h
 test
 
 
-# In[19]:
+# In[297]:
 
 
 ## MACD 3d gap and rsi up
@@ -1282,7 +1293,7 @@ test = newframe.loc[(newframe['stkup'].notnull()) &  (newframe['bottoms'].notnul
 test
 
 
-# In[20]:
+# In[298]:
 
 
 ## MACD gap 1 Week and rsi up
@@ -1297,7 +1308,7 @@ test = newframe.loc[(newframe['uptrend'].notnull()) &  (newframe['bottoms'].notn
 test
 
 
-# In[21]:
+# In[299]:
 
 
 test = newframe.loc[(newframe['Indicator'] == 'BTCUSDT')]
