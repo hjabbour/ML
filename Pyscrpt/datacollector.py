@@ -332,7 +332,7 @@ else :
 #final.to_csv("MLDATATOP"+str(date.today())+".csv")
 ## adding to two files the first file i thought there is a column missmatch
 #final.to_csv('MLSTRSIMACDBTTOP.csv', mode='a', index=True, header=False)
-final.to_csv('MLDATATOP.csv', mode='a', index=True, header=False)
+#final.to_csv('MLDATATOP.csv', mode='a', index=True, header=False)
 #final.reset_index(inplace=True)
 
 final.head()
